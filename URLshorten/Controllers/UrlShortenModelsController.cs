@@ -75,7 +75,7 @@ namespace URLshorten.Controllers
                 return BadRequest("The code is already in use!");
             }
 
-            var result = $"{this.Request.Scheme}://{this.Request.Host}/{code}";
+            var result = $"{this.Request.Scheme}://{this.Request.Host}/api/{code}";
 
             existingUrl.ShortUrl = result;
             existingUrl.Code = code;
@@ -131,7 +131,7 @@ namespace URLshorten.Controllers
             }
 
             var randomCode = await _shortenService.GenerateUniqueCode();
-            var result = $"{this.Request.Scheme}://{this.Request.Host}/{randomCode}";
+            var result = $"{this.Request.Scheme}://{this.Request.Host}/api/{randomCode}";
 
             // generate a qrcode to the shorten url for scanning
 
