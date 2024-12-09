@@ -25,7 +25,7 @@
         "HttpsStatusCode": 429
       },
       "FileCacheOptions": {
-        "Region": "shorten-cache",
+        "Region": "get-shorten-cache",
         "TtlSeconds": 15
       }
     },
@@ -52,8 +52,8 @@
         "HttpsStatusCode": 429
       },
       "FileCacheOptions": {
-        "Region": "shorten-cache",
-        "TtlSeconds": 15
+        "Region": "get-shorten-cache",
+        "TtlSeconds": 10
       }
     },
 
@@ -80,8 +80,8 @@
         "HttpsStatusCode": 429
       },
       "FileCacheOptions": {
-        "Region": "shorten-cache",
-        "TtlSeconds": 15
+        "Region": "get-shorten-cache",
+        "TtlSeconds": 10
       }
     },
 
@@ -102,12 +102,12 @@
         "EnableRateLimiting": true,
         "Period": "5s",
         "PeriodTimespan": 1,
-        "Limit": 5,
+        "Limit": 2,
         "QuotaExceededMessage": "Too Many Requests",
         "HttpsStatusCode": 429
       },
       "FileCacheOptions": {
-        "Region": "shorten-cache",
+        "Region": "put-shorten-cache",
         "TtlSeconds": 15
       }
     },
@@ -134,7 +134,7 @@
         "HttpsStatusCode": 429
       },
       "FileCacheOptions": {
-        "Region": "shorten-cache",
+        "Region": "put-origin-cache",
         "TtlSeconds": 15
       }
     },
@@ -161,7 +161,7 @@
         "HttpsStatusCode": 429
       },
       "FileCacheOptions": {
-        "Region": "shorten-cache",
+        "Region": "post-shorten-cache",
         "TtlSeconds": 15
       }
     },
@@ -189,7 +189,7 @@
         "HttpsStatusCode": 429
       },
       "FileCacheOptions": {
-        "Region": "shorten-cache",
+        "Region": "delete-shorten-cache",
         "TtlSeconds": 15
       }
     }
