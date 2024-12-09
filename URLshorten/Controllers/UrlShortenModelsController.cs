@@ -84,7 +84,7 @@ namespace URLshorten.Controllers
             _context.UrlShortenModel.Update(existingUrl);
             await _context.SaveChangesAsync();
 
-            return Ok(new UrlShortenResDto()
+            return Ok(new UrlResDto()
             {
                 Url = result,
             });
@@ -108,7 +108,7 @@ namespace URLshorten.Controllers
             _context.UrlShortenModel.Update(existingUrl);
             await _context.SaveChangesAsync();
 
-            return Ok(new UrlShortenResDto()
+            return Ok(new UrlResDto()
             {
                 Url = result,
             });
@@ -153,7 +153,7 @@ namespace URLshorten.Controllers
             _context.UrlShortenModel.Add(urlShorten);
             await _context.SaveChangesAsync();            
 
-            return Ok(new UrlShortenResDto()
+            return Ok(new UrlResDto()
             {
                 Url = result,
             });
