@@ -13,7 +13,7 @@
                 <!-- <label for="message">Message:</label> -->
                 <!-- <textarea id="message" name="message" placeholder="Enter your message" rows="4" required></textarea> -->
                 
-                <button @click.prevent="getFormValues()" type="submit">Submit</button>
+                <button form @click.prevent="getFormValues()" type="submit">Submit</button>
             </form>
         </div>
         <div class="list-box">
@@ -60,9 +60,9 @@ export default {
             body: JSON.stringify({ url: urlpost },),
           })
 
-        //   if (!res.ok) {
-        //           throw new Error(`Response status: ${response.status}`);
-        //         }
+          if (!res.ok) {
+                  throw new Error(`Response status: ${response.status}`);
+                }
                 const finalRes = await res.json();
                 console.log(finalRes)
 
@@ -111,6 +111,7 @@ export default {
         const finalRes = await res.json();
         console.log(finalRes)
       } catch (error) {
+        console.log(error)
       }
     },
 
