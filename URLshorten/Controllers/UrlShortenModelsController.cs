@@ -73,6 +73,7 @@ namespace URLshorten.Controllers
             if (await _context.UrlShortenModel.AnyAsync(u => u.Code == code))
             {
                 return BadRequest("The code is already in use!");
+                
             }
 
             var result = $"{this.Request.Scheme}://{this.Request.Host}/api/{code}";
