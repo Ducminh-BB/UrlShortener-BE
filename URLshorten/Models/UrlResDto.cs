@@ -1,6 +1,6 @@
 ﻿namespace URLshorten.Models
 {
-    public class UrlShortenResDto
+    public class UrlResDto
     {
         public string? Url { get; set; }
     }

@@ -24,6 +24,8 @@
         </div>
         <div v-if="qrVisible" :style="{backgroundImage: qrimg}" class="qr-code"></div>
         <div @click="qrVisible = false" v-if="qrVisible" class="qr-code-mask"></div>
+        <div ></div>
+        <div class="al"></div>
       </div>
 </template>
 
@@ -90,8 +92,9 @@ methods: {
         if (this.datashorturl == this.$refs['first-url'].value) {
         // this.datacode = newcode
         this.datashorturl = this.localhost + this.$refs['first-url'].value
-        console.log('same url no put')
-      }
+          console.log('same url no put')
+        }
+        
       else {
         this.datashorturl = this.localhost + this.datacode
         console.log('send put')
@@ -107,13 +110,17 @@ methods: {
 
       try {
         if (this.datalongurl == this.$refs['last-url'].value)
-      console.log('same origin url no put')
+          console.log('same origin url no put')
 
         else {
 
-            this.datalongurl = this.$refs['last-url'].value
-            console.log('send origin url put')
-            this.editOriginCode(this.datacode)
+          this.datalongurl = this.$refs['last-url'].value
+          console.log('send origin url put')
+
+          setTimeout(() => {
+            this.editOriginCode(newcode)
+          }, 3000);
+
         }
       } catch (error) {
         console.log('edit post error')
@@ -131,9 +138,11 @@ methods: {
         this.isEditing = false
         this.datashorturl = this.localhost + this.datashorturl
     },
-    deleteUrl() {
-        this.isDeleted = true
-        this.deleteShortenCode(this.shorturl)
+  deleteUrl() {
+    if (window.confirm('Are you sure you want to delete this?')) {
+      this.isDeleted = true
+      this.deleteShortenCode(this.datashorturl)
+    }
     },
 
     // EDIT SHORT CODE

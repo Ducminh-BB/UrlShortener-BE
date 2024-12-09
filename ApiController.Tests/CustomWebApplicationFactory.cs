@@ -32,7 +32,8 @@ namespace ApiController.Tests
                 using var scope = serviceProvider.CreateScope();
                 var scopedServices = scope.ServiceProvider;
                 var db = scopedServices.GetRequiredService<URLshortenContext>();
-                db.Database.EnsureDeleted();
+                
+                // ensure in-memory db is created
                 db.Database.EnsureCreated();
 
                 db.UrlShortenModel.Add(new UrlShortenModel
