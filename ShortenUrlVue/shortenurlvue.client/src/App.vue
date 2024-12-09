@@ -1,46 +1,45 @@
 <template>
   <div id="app">
-    <nav></nav>
-    <UrlView ></UrlView>
+    <DrawerDemo />
   </div>
 </template>
 
 <script>
-  // import HelloWorld from './components/HelloWorld.vue'
-  import UrlView from './components/UrlView.vue';
+import DrawerDemo from "./components/DrawerDemo.vue";
 
-
-  export default {
-    name: 'App',
-    components: {
-      UrlView
-    },
+export default {
+  name: "App",
+  components: {
+    DrawerDemo,
+  },
+    mounted() {
+    document.title = "UShortSharp"
   }
- 
-    
+};
 </script>
 
 <style>
-    /* #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  } */
+#app {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  /* margin-top: 0px; */
 
-    /* #app {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-  } */
+  
+}
 
-    body {
-      background-color: grey;
-    }
+body {
+  background-image: url('./assets/sunset.jpg');
+  background-position: center;
+  background-size: cover;
+  /* background-color: grey; */
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  margin: 0;
+  /* filter: blur(8px); */
+  /* -webkit-filter: blur(2px); */
+
+
+}
 </style>
