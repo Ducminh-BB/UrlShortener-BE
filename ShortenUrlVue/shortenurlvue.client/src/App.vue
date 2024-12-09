@@ -12,6 +12,9 @@ export default {
   components: {
     DrawerDemo,
   },
+    mounted() {
+    document.title = "UShortSharp"
+  }
 };
 </script>
 
