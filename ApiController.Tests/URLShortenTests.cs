@@ -18,7 +18,13 @@ namespace ApiController.Tests
         public URLShortenTests()
         {
             _factory = new CustomWebApplicationFactory();
-            _client = _factory.CreateClient();
+
+            var opts = new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false
+            };
+            _client = _factory.CreateClient(opts);
+
             _client.BaseAddress = new Uri("https://localhost:3000");
             _context = _factory.Services.GetRequiredService<URLshortenContext>();
         }
@@ -46,14 +52,8 @@ namespace ApiController.Tests
             var expectedRedirectUrl = "https://www.youtube.com/watch?v=zaRM0iIhJvs";
 
             // Act: Make a GET request to the redirect endpoint with automatic redirect disabled.
-            var opts = new WebApplicationFactoryClientOptions
-            {
-                AllowAutoRedirect = false,
-                BaseAddress = new Uri("https://localhost:3000"),
-            };
-
-            using var client = _factory.CreateClient(opts);
-            var response = await client.GetAsync($"/api/{code}");
+            
+            var response = await _client.GetAsync($"/api/{code}");
 
             // Assert: Check if the response is a redirection and matches the correct URL.
             Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
@@ -91,7 +91,7 @@ namespace ApiController.Tests
             };
 
             // Act: Send the DELETE request
-            var response = await _client.SendAsync(request);
+            var response = await _client.SendAsync(request);            
 
             // Assert: Check if the response is successful and returns the expected message.
             response.EnsureSuccessStatusCode();
@@ -118,11 +118,8 @@ namespace ApiController.Tests
 
             // Act: Send the PUT request to update the shortened URL
             var content = new StringContent(JsonSerializer.Serialize(urlDto), Encoding.UTF8, "application/json");
-            var request = new HttpRequestMessage(HttpMethod.Put, $"/api/edit-shorten?code={newCode}")
-            {
-                Content = content
-            };
-            var response = await _client.SendAsync(request);
+
+            var response = await _client.PutAsync($"/api/edit-shorten?code={newCode}", content);
 
             // Assert: Verify the response
             response.EnsureSuccessStatusCode();
