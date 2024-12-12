@@ -12,13 +12,14 @@
     >
     <div class="drawer-mask-container">
       <span class="recent-url-text">Your recent url</span>
-      <span>Total URL {{ urlLength }}</span>
       <button class="close" @click="drawerVisible = false">
         &#9587;
       </button>
     </div>
 
+
     <div class="recent-url-list">
+      <div class="total-url" style="width: 100%;text-align: center;margin-top: 10px;font-weight: bold;margin-bottom: 0;" >Total URL: {{ urlLength }} </div>
 
       <UrlRecentList 
       v-for="url in urlList"

@@ -9,7 +9,7 @@
 
         <input ref="last-url" :value="datalongurl" class="long-url"  :disabled="!isEditing" :class="{view: !isEditing}">
 
-        <div >Created at: {{ returnDate(date) }}</div>
+        <div >Created at: {{ formatDate }}</div>
 
     
         <div class="url-btn-list">
@@ -43,7 +43,8 @@ data() {
         datalongurl: "",
         datacode: "",
         qrimg: "",
-        qrVisible: false
+        qrVisible: false,
+        formatDate: '',
     }
 },
 props: {
@@ -78,33 +79,29 @@ this.datashorturl = this.shorturl
 this.datalongurl = this.longurl
 this.datacode = this.code
 this.qrimg = `url("data:image/jpg;base64,${this.qrbase64}")`
-    },
-
-    // mounted() {
-    //   this.returnDate(this.date);
-    // },
+this.returnDate()
+},
 
 methods: {
     emitrefresh () {
         this.$emit(refresh)
-  },
+    },
 
-  returnDate(date) {
-    
-      const localDate = new Date(date)
+    returnDate() {
+      
+    const localDate = new Date(this.date)
 
-      const formattedDate = localDate.toLocaleDateString('vi-VN', {
+    const formattedDate = localDate.toLocaleDateString('vi-VN', {
                                                     year: 'numeric',
                                                     month: 'short',
                                                     day: '2-digit',
                                                     hour: '2-digit',
                                                     minute: '2-digit'
-                                                }
-)
+                                                })
 
-      return formattedDate
-    
-  },
+    this.formatDate = formattedDate
+
+    },
 
     save() {
       const newcode = this.$refs['first-url'].value
@@ -187,7 +184,6 @@ methods: {
         console.log(finalRes)
       } catch (error) {
         console.log(error)
-        alert('invalid edit ')
       }
     },
 
@@ -205,9 +201,7 @@ methods: {
         const finalRes = await res.json();
         console.log(finalRes);
       } catch (error) {
-        alert('test deletion invalida')
-        console.log('Error:', error.message);
-        
+        console.error('Error:', error.message);
       }
     },
 
