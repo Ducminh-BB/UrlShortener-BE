@@ -12,6 +12,7 @@
     >
     <div class="drawer-mask-container">
       <span class="recent-url-text">Your recent url</span>
+      <span>Total URL {{ urlLength }}</span>
       <button class="close" @click="drawerVisible = false">
         &#9587;
       </button>

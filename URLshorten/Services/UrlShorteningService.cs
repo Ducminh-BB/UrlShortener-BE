@@ -16,6 +16,8 @@ namespace ShortenURL.Services
             _context = context;
         }
 
+
+        //Create unique shorten code
         public async Task<string> GenerateUniqueCode()
         {
             //Array store shorten link name
@@ -37,9 +39,7 @@ namespace ShortenURL.Services
                 {
                     return code;
                 }
-            }
-
-            
+            }           
         }
     }
 }

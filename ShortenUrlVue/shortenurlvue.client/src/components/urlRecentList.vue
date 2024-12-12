@@ -9,7 +9,7 @@
 
         <input ref="last-url" :value="datalongurl" class="long-url"  :disabled="!isEditing" :class="{view: !isEditing}">
 
-        <div >Created at: {{ date }}</div>
+        <div >Created at: {{ returnDate(date) }}</div>
 
     
         <div class="url-btn-list">
@@ -78,12 +78,33 @@ this.datashorturl = this.shorturl
 this.datalongurl = this.longurl
 this.datacode = this.code
 this.qrimg = `url("data:image/jpg;base64,${this.qrbase64}")`
-},
+    },
+
+    // mounted() {
+    //   this.returnDate(this.date);
+    // },
 
 methods: {
     emitrefresh () {
         this.$emit(refresh)
-    },
+  },
+
+  returnDate(date) {
+    
+      const localDate = new Date(date)
+
+      const formattedDate = localDate.toLocaleDateString('vi-VN', {
+                                                    year: 'numeric',
+                                                    month: 'short',
+                                                    day: '2-digit',
+                                                    hour: '2-digit',
+                                                    minute: '2-digit'
+                                                }
+)
+
+      return formattedDate
+    
+  },
 
     save() {
       const newcode = this.$refs['first-url'].value
@@ -166,6 +187,7 @@ methods: {
         console.log(finalRes)
       } catch (error) {
         console.log(error)
+        alert('invalid edit ')
       }
     },
 
@@ -183,7 +205,9 @@ methods: {
         const finalRes = await res.json();
         console.log(finalRes);
       } catch (error) {
-        console.error('Error:', error.message);
+        alert('test deletion invalida')
+        console.log('Error:', error.message);
+        
       }
     },
 
