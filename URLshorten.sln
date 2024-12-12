@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLshorten", "URLshorten\UR
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway", "Gateway\Gateway.csproj", "{FD82DCF0-145E-45C3-9A06-93831DB11D13}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "shortenurlvue.client", "ShortenUrlVue\shortenurlvue.client\shortenurlvue.client.esproj", "{DDDABFA4-948D-47B6-8938-8BF3D070571F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiController.Tests", "ApiController.Tests\ApiController.Tests.csproj", "{89CFBA5B-8E0A-44C3-BDF5-CE2D69F9894F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortenVueFE.Server", "ShortenVueFE\ShortenVueFE.Server\ShortenVueFE.Server.csproj", "{A5CE9C17-197B-4520-A43D-FB341A14E542}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "shortenvuefe.client", "ShortenVueFE\shortenvuefe.client\shortenvuefe.client.esproj", "{C5A88F03-52F5-479B-A2C3-4B3E2824B1FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,16 +27,20 @@ Global
 		{FD82DCF0-145E-45C3-9A06-93831DB11D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD82DCF0-145E-45C3-9A06-93831DB11D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD82DCF0-145E-45C3-9A06-93831DB11D13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDDABFA4-948D-47B6-8938-8BF3D070571F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDDABFA4-948D-47B6-8938-8BF3D070571F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDDABFA4-948D-47B6-8938-8BF3D070571F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{DDDABFA4-948D-47B6-8938-8BF3D070571F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDDABFA4-948D-47B6-8938-8BF3D070571F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDDABFA4-948D-47B6-8938-8BF3D070571F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{89CFBA5B-8E0A-44C3-BDF5-CE2D69F9894F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{89CFBA5B-8E0A-44C3-BDF5-CE2D69F9894F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89CFBA5B-8E0A-44C3-BDF5-CE2D69F9894F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89CFBA5B-8E0A-44C3-BDF5-CE2D69F9894F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5CE9C17-197B-4520-A43D-FB341A14E542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5CE9C17-197B-4520-A43D-FB341A14E542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5CE9C17-197B-4520-A43D-FB341A14E542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5CE9C17-197B-4520-A43D-FB341A14E542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A88F03-52F5-479B-A2C3-4B3E2824B1FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A88F03-52F5-479B-A2C3-4B3E2824B1FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A88F03-52F5-479B-A2C3-4B3E2824B1FE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C5A88F03-52F5-479B-A2C3-4B3E2824B1FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5A88F03-52F5-479B-A2C3-4B3E2824B1FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A88F03-52F5-479B-A2C3-4B3E2824B1FE}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
